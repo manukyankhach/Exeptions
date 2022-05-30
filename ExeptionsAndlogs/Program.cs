@@ -16,18 +16,20 @@ namespace ExeptionsAndlogs
                 int x = 5;
                 int y = 0;
 
-                //Console.WriteLine("Please insert the first parameter");
-                //double x = Convert.ToDouble(Console.ReadLine());
-                //Console.WriteLine("Please insert the second parameter");
-                //double y = Convert.ToDouble(Console.ReadLine());
-                //Arithmetic.Addition(x, y);
-                var xxx = Arithmetic.Division(x, y);
+                Arithmetic.Division(x, y);
+                Arithmetic.Addition(x, y);
+            }
+            catch (ArgumentNullException ex)
+            {
+                logger.Log(logger.CreateLog(ex));
+            }
+            catch (DivideByZeroException ex)
+            {
+                logger.Log(logger.CreateLog(ex));
             }
             catch (Exception ex)
             {
-                Console.WriteLine("----------------------------");
                 logger.Log(logger.CreateLog(ex));
-                
             }
         }
     }

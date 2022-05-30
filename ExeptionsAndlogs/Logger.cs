@@ -12,7 +12,7 @@ namespace ExeptionsAndlogs
         public string CreateLog(Exception ex)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            Console.WriteLine("---------------------------------");
+            stringBuilder.AppendLine("----------------------------");
             stringBuilder.AppendLine(ex.Data.ToString());
             stringBuilder.AppendLine(ex.Message);
             stringBuilder.AppendLine(ex.Source);
@@ -28,7 +28,7 @@ namespace ExeptionsAndlogs
             path = Path.Combine(new string[] { path, "logs.txt" });
             if (!File.Exists(path))
                 File.CreateText(path);
-            File.WriteAllText(path, input);
+            File.AppendAllText(path, input);
         }
     }
 }
